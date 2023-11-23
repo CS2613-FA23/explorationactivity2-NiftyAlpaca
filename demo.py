@@ -3,6 +3,8 @@
 import numpy as np
 from skimage import io;
 from skimage.color import rgb2hsv;
+from skimage.morphology import skeletonize
+from skimage.util import invert
 import matplotlib.pyplot as plt;
 import picfunc as pf
 import glob
@@ -17,7 +19,13 @@ for i in range(len(imageList)):
 
 index =int(input())
 print(str(index))
-photo = io.imread(imageList[index])
+try:
+    photo = io.imread(imageList[index])
+except:
+    print("Choose an image from the list: ")
+    for i in range(len(imageList)):
+        print(str(i) + " " + imageList[i])
+        index =int(input())
 
 originalPhoto = photo
 
@@ -29,6 +37,7 @@ print("     2. Crop Picture")
 print("     3. Flip Picture")
 print("     4. Get Stats")
 print("     5. Change Color Scheme")
+print("     6. Skeletonize")
 print("     0. Quit")
 while(not done):
     try:
@@ -39,16 +48,22 @@ while(not done):
         break
     if(option == 0):
         done = True
-        print("What do you want to name the picture file? Please include jpg extension")
-        response = str(input())
-        print(response)
-        if(".jpg" not in response):
-            print("please make sure file name has .jpg extension")
+        print("Save? (Y/N)")
+        YN = str(input())
+        if(YN == "Y"):
+            print("What do you want to name the picture file? Please include jpg extension")
             response = str(input())
             print(response)
-        io.imsave(response, photo)
-        print("QUIT")
-        break
+            if(".jpg" not in response):
+                print("please make sure file name has .jpg extension")
+                response = str(input())
+                print(response)
+            io.imsave(response, photo)
+            print("QUIT")
+            break
+        else:
+            print("QUIT")
+            break
     elif(option == 1):
         print("Input magnitude to decrease resolution as integer")
         try:
@@ -93,7 +108,11 @@ while(not done):
             photo = hsv_img[:,:,2]
         
         plt.imshow(photo)
-            
+    elif(option == 6):
+         print("loading...may take a while")
+         photo = invert(photo)
+         photo = skeletonize(photo)
+         plt.imshow(photo)    
     plt.show()
     print("Select an option: ")
     print("     1. Decrease Resolution")
@@ -101,8 +120,9 @@ while(not done):
     print("     3. Flip Picture")
     print("     4. Get Stats")
     print("     5. Change Color Scheme")
+    print("     6. Skeletonize")
     print("     0. Quit")
 
 
-# %%
+1# %%
 
