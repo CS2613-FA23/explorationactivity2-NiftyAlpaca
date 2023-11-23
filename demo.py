@@ -2,6 +2,7 @@
 #%%
 import numpy as np
 from skimage import io;
+from skimage.color import rgb2hsv;
 import matplotlib.pyplot as plt;
 import picfunc as pf
 import glob
@@ -18,6 +19,8 @@ index =int(input())
 print(str(index))
 photo = io.imread(imageList[index])
 
+originalPhoto = photo
+
 plt.imshow(photo)
 plt.show()
 print("Select an option: ")
@@ -25,6 +28,7 @@ print("     1. Decrease Resolution")
 print("     2. Crop Picture")
 print("     3. Flip Picture")
 print("     4. Get Stats")
+print("     5. Change Color Scheme")
 print("     0. Quit")
 while(not done):
     try:
@@ -73,12 +77,30 @@ while(not done):
         print("Max: " + str(np.max(photo)))
         print("Min: " + str(np.min(photo)))
         print(" ")
+    elif(option == 5):
+        print("\n Select an option:")
+        print("\t 1.HSV")
+        print("\t 2.Hue")
+        print("\t 3.Value Channel")
+        
+        select = int(input())
+        hsv_img = rgb2hsv(originalPhoto)
+        if(select == 1):
+            photo = hsv_img
+        elif(select == 2):
+            photo = hsv_img[:,:,0]
+        elif(select == 3):
+            photo = hsv_img[:,:,2]
+        
+        plt.imshow(photo)
+            
     plt.show()
     print("Select an option: ")
     print("     1. Decrease Resolution")
     print("     2. Crop Picture")
     print("     3. Flip Picture")
     print("     4. Get Stats")
+    print("     5. Change Color Scheme")
     print("     0. Quit")
 
 
