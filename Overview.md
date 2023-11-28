@@ -43,7 +43,7 @@ plt.show()
 ```
 
 ### Output:
-![image](READMEIMAGES/Example1.JPG)
+![image](ReadMeImages/Example1.JPG)
 
 ### Histogram Matching
 
