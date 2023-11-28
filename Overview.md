@@ -76,14 +76,14 @@ plt.tight_layout()
 plt.show()
 ```
 #### Output:
-![image](READMEIMAGES/Example2.JPG)
+![image](ReadMeImages/Example2.JPG)
 
 
 ## Reflection
 
 I can easily say the team of skimage accomplished their goals. The package is extremely easy to use due to all functionality being encapsulated well into their respective classes and methods. The package was very easy to install and implement into my simple program without any complications. I found this package very fun to use and I loved the images that I have created with it, for example my beloved "cursed" penguin:
 
-![image](READMEIMAGES/Step3.JPG)
+![image](ReadMeImages/Step3.JPG)
 
 Speaking of my penguin, one thing that can limit a user using skimage is that if you don't have much knowledge about image processing and the data involved, it may make it difficult to get the desired result. As you can see, the difference between the histogram example and my implementation of it is quite different and that is probably because although the functions were easy to use, I don't really understand what they are ACTUALLY doing step by step. So if you plan to use this package, you might need to do a little research into how the data behind image processing works.
 

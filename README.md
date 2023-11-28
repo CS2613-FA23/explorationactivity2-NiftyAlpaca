@@ -44,16 +44,16 @@ Here is a quick demo of the app using pictures:
 
 Step 1: User is prompted to choose an image from the local directory. After the selection is made, the program prints the image.
 
-![image](READMEIMAGES/Step1.JPG)
+![image](ReadMeImages/Step1.JPG)
 
 Step 2: User is promted to choose a way to modify the picture with an additional option to print the statistics of the image's pixel data. In this example, the user decided to match the image scheme of one picture to another (Penguin.jpg and Lion.jpg)
 
-![image](READMEIMAGES/Step2.JPG)
+![image](ReadMeImages/Step2.JPG)
 
 Step 3: The user is prompted to enter which image he would like to match. They choose Lion.jpg in this scenario
 
-![image](READMEIMAGES/Step3.JPG)
+![image](ReadMeImages/Step3.JPG)
 
 Step 3: User is finished modifying the picture and presses 0 to finish up the photo editing process. The user is prompted whether they want to save or not. In this example, they selected no (N). If they selected yes (Y) then it would prompt them for the name of the new file ending with .JPEG
 
-![image](READMEIMAGES/Step4.JPG)
+![image](ReadMeImages/Step4.JPG)
