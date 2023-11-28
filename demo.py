@@ -5,6 +5,8 @@ from skimage import io;
 from skimage.color import rgb2hsv;
 from skimage.morphology import skeletonize
 from skimage.util import invert
+from skimage import exposure
+from skimage.exposure import match_histograms
 import matplotlib.pyplot as plt;
 import picfunc as pf
 import glob
@@ -38,6 +40,7 @@ print("     3. Flip Picture")
 print("     4. Get Stats")
 print("     5. Change Color Scheme")
 print("     6. Skeletonize")
+print("     7. Match Images")
 print("     0. Quit")
 while(not done):
     try:
@@ -112,7 +115,17 @@ while(not done):
          print("loading...may take a while")
          photo = invert(photo)
          photo = skeletonize(photo)
-         plt.imshow(photo)    
+         plt.imshow(photo)  
+    elif(option == 7):
+        secondList = imageList
+        secondList.remove(imageList[index])
+        print("Choose an image from the list to match to current image: ")
+        for i in range(len(secondList)):
+            print(str(i) + " " + secondList[i])
+        index2 = int(input())
+        reference = io.imread(secondList[i])
+        photo = match_histograms(photo, reference, channel_axis=-1)
+        plt.imshow(photo)
     plt.show()
     print("Select an option: ")
     print("     1. Decrease Resolution")
@@ -121,8 +134,11 @@ while(not done):
     print("     4. Get Stats")
     print("     5. Change Color Scheme")
     print("     6. Skeletonize")
+    print("     7. Match Images")
     print("     0. Quit")
 
 
 1# %%
 
+
+# %%
